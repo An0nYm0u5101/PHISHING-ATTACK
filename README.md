@@ -1,3 +1,3 @@
 phishing-attack
 PHISHING-ATTACK
-Güncelleme 15.11.2020
+Güncelleme 11.01.2021

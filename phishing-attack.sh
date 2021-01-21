@@ -12,6 +12,22 @@ if [[ $kontrol == 0 ]];then
 	echo
 	pkg install termux-api -y
 fi
+kontrol=$(timeout 5 termux-battery-status |wc -l)
+if [[ $kontrol == 0 ]];then
+	echo
+	echo
+	echo
+	printf "\e[31m[!]\e[97m TERMUX APİ UYGULAMASINI YÜKLEYİNİZ"
+	echo
+	echo
+	echo
+	sleep 2
+	am start -a android.intent.action.VIEW "https://play.google.com/store/apps/details?id=com.termux.api"
+	echo
+	echo
+	echo
+	exit
+fi
 #################### PHP ####################
 kontrol=$(which php |wc -l)
 if [[ $kontrol == 0 ]];then

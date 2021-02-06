@@ -65,7 +65,7 @@
           <!--<label for="login_field">
             KULLANICI ADI
           </label>-->
-          <input type="text" name="kullaniciadi" class="form-control input-block" autocapitalize="off" autocorrect="off" placeholder="Kullanıcı Adı" required="required"/>
+          <input type="text" name="username" class="form-control input-block" autocapitalize="off" autocorrect="off" placeholder="Kullanıcı Adı" required="required"/>
 
 
           <!--<label for="password">

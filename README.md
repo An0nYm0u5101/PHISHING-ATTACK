@@ -1,6 +1,6 @@
 phishing-attack
 
-Güncelleme 06.02.2021
+Güncelleme 07.02.2021
 
 GİTHUB    : https://github.com/termuxxtoolss
 

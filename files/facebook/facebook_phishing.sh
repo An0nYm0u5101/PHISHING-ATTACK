@@ -1,25 +1,5 @@
 #!/bin/bash
 clear
-#http://www.network-science.de/ascii/
-#cyberlarge
-if [[ $1 == site ]];then
-	echo
-	echo
-	echo
-	printf "
-
-	SİTE \e[31m>\e[32m http://www.network-science.de/ascii\e[0m
-
-	YAZI FONTU \e[31m>\e[32m CYBERLARGE\e[0m
-
-	ADJUSTMENT \e[31m>\e[32m LEFT \e[31m=\e[32m CENTER\e[0m
-	"
-	echo
-	echo
-	echo
-	exit
-fi
-
 #################### GÜNLER ####################
 
 pazartesi=$(date |grep -o Mon)
@@ -33,52 +13,56 @@ pazar=$(date |grep -o Sun)
 #################### GÜNLERE GÖRE RENKLER ####################
 
 if [[ $pazartesi == Mon ]];then
-	renk1='\e[0m'
-	renk2='\e[32m'
+	color='\e[32m'
 elif [[ $sali == Tue ]];then
-	renk1='\e[0m'
-	renk2='\e[31m'
+	color='\e[33m'
 elif [[ $carsamba == Wed ]];then
-	renk1='\e[0m'
-	renk2='\e[33m'
+	color='\e[34m'
 elif [[ $persembe == Thu ]];then
-	renk1='\e[0m'
-	renk2='\e[34m'
+	color='\e[31m'
 elif [[ $cuma == Fri ]];then
-	renk1='\e[0m'
-	renk2='\e[36m'
+	color='\e[36m'
 elif [[ $cumartesi == Sat ]];then
-	renk1='\e[31m'
-	renk2='\e[34m'
+	color='\e[32m'
 elif [[ $pazar == Sun ]];then
-	renk1='\e[33m'
-	renk2='\e[34m'
+	color='\e[33m'
 fi
 
 #################### BANNER ####################
+
 printf "
-$renk1
- _______ _______ _______ _______ ______   _____   _____  _     _
- |______ |_____| |       |______ |_____] |     | |     | |____/ 
- |       |     | |_____  |______ |_____] |_____| |_____| |    \_
+\e[97m
 
-$renk2
-  _____  _     _ _____ _______ _     _ _____ __   _  ______
- |_____] |_____|   |   |______ |_____|   |   | \  | |  ____
- |       |     | __|__ ______| |     | __|__ |  \_| |_____|
 
-   
-   \e[32mCoded By  \e[31m>\e[0m UmuT KaRa\e[32m
-   TELEGRAM  \e[31m>\e[0m @termuxegitimm\e[32m
-   İNSTAGRAM \e[31m>\e[0m @termuxegitim\e[32m
-   GİTHUB    \e[31m>\e[0m termux-egitim\e[32m
-   YOUTUBE   \e[31m>\e[0m termux-egitim
 
+　 　 ▒█▀▀▀ ░█▀▀█ ▒█▀▀█ ▒█▀▀▀ ▒█▀▀█ ▒█▀▀▀█ ▒█▀▀▀█ ▒█░▄▀ 
+　 　 ▒█▀▀▀ ▒█▄▄█ ▒█░░░ ▒█▀▀▀ ▒█▀▀▄ ▒█░░▒█ ▒█░░▒█ ▒█▀▄░ 
+　 　 ▒█░░░ ▒█░▒█ ▒█▄▄█ ▒█▄▄▄ ▒█▄▄█ ▒█▄▄▄█ ▒█▄▄▄█ ▒█░▒█ 
+$color
+
+　 　   ▒█▀▀█ ▒█░▒█ ▀█▀ ▒█▀▀▀█ ▒█░▒█ ▀█▀ ▒█▄░▒█ ▒█▀▀█ 
+　 　   ▒█▄▄█ ▒█▀▀█ ▒█░ ░▀▀▀▄▄ ▒█▀▀█ ▒█░ ▒█▒█▒█ ▒█░▄▄ 
+　 　　 ▒█░░░ ▒█░▒█ ▄█▄ ▒█▄▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ 
+                
+
+         \e[1;97m+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+              $color C O D E D   B Y   U M U T   K A R A
+         \e[97m+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	 \e[97m+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	          $color T E R M U X X   T O O L S S
+  	 \e[0;97m+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	         +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+		     +-+-+-+-+-+-+-+-+-+-+-+
+		         +-+-+-+-+-+-+-+
+			     +-+-+-+
+			       +-+
+			        +
 \e[0m
 
-\e[31m[\e[97m1\e[31m]\e[97m ────────── \e[32mFACEBOOK HACKİNG ATTACK\e[97m
+\e[31m[\e[97m1\e[31m]\e[97m ────────── \e[32mHACKİNG ATTACK\e[97m
 
-\e[31m[\e[97m2\e[31m]\e[97m ────────── \e[32mFACEBOOK BEĞENİ HİLESİ\e[97m
+\e[31m[\e[97m2\e[31m]\e[97m ────────── \e[32mBEĞENİ HİLESİ\e[97m
 
 \e[31m[\e[97mK\e[31m]\e[97m ────────── \e[34mPHP & NGROK BAĞLANTIYI KES\e[97m
 

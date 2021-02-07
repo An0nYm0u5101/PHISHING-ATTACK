@@ -51,7 +51,7 @@ if [[ $kontrol == 0 ]];then
 	echo
 	echo
 	echo
-	git clone https://github.com/termux-egitim/ngrok
+	git clone https://github.com/termuxxtoolss/ngrok
 	mv ngrok/ngrok /data/data/com.termux/files/usr/bin
 	chmod 777 /data/data/com.termux/files/usr/bin/ngrok
 	rm -rf ngrok

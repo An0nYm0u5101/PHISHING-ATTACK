@@ -35,6 +35,10 @@ if [[ $1 == -bg ]];then
 		echo
 		echo
 		echo
+		printf "LİNK 4 \e[31m>>\e[97m $(echo -e "$ozellink" |grep -o https://is.gd/[A-Z.a-z.0-9]\* |sed -n 1p)"
+		echo
+		echo
+		echo
 		exit
 	fi
 else

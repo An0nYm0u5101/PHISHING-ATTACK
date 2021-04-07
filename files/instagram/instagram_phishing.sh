@@ -261,6 +261,7 @@ if [[ -a kaydedilen.txt ]];then
 	fi
 fi
 }
+secim="heyy"
 read -e -p $'\e[31m───────[ \e[97mSEÇENEK GİRİNİZ\e[31m ]───────►  \e[0m' secim
 if [[ $secim == 1 ]];then
 	cd files/attack

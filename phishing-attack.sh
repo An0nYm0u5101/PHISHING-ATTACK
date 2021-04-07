@@ -1,5 +1,39 @@
 #!/bin/bash
 clear
+#################### FAKE TERMUX-APİ ###############
+if [[ $1 == --termux-api-no ]];then
+	echo '#!/bin/bash' > $PREFIX/bin/termux-notification
+	echo '
+	#!/bin/bash
+	echo "fake-termux-api"' > $PREFIX/bin/termux-battery-status
+	chmod 777 $PREFIX/bin/*
+	echo
+	echo
+	echo
+	printf "\e[33m[*]\e[97m TERMUX APİ DEVREDIŞI BIRAKILDI" 
+	echo
+	echo
+	echo
+	exit
+fi
+if [[ $1 == --termux-api-yes ]];then
+	kontrol=$(which termux-notification |wc -l)
+	if [[ $kontrol == 1 ]];then
+		rm termux-notification
+	fi
+	kontrol=$(which termux-battery-status |wc -l)
+	if [[ $kontrol == 1 ]];then
+		rm termux-battery-status
+	fi
+	echo
+	echo
+	echo
+	printf "\e[33m[*]\e[97m TERMUX APİ ETKİNLEŞTİRİLDİ" 
+	echo
+	echo
+	echo
+	exit
+fi
 #################### TERMUX-APİ ####################
 kontrol=$(which termux-notification |wc -l)
 if [[ $kontrol == 0 ]];then
@@ -63,27 +97,10 @@ if [[ $kontrol == 0 ]];then
 	echo
 	echo
 	echo
-	git clone https://github.com/termuxxtoolss/ngrok
-	mv ngrok/ngrok /data/data/com.termux/files/usr/bin
+	git clone https://github.com/termuxxtoolss/ngrok-kurulum
+	mv ngrok-kurulum/files/ngrok-2-2-8/ngrok /data/data/com.termux/files/usr/bin
 	chmod 777 /data/data/com.termux/files/usr/bin/ngrok
-	rm -rf ngrok
-else
-	kontrol=$(ngrok version |awk -F 'version ' {'print $2'})
-	if [[ $kontrol != 2.2.8 ]];then
-		rm $PREFIX/bin/ngrok
-		echo
-		echo
-		echo
-		printf "\e[33m[*] \e[0mNGROK YÜKLENİYOR "
-		echo
-		echo
-		echo
-		git clone https://github.com/termuxxtoolss/ngrok
-		mv ngrok/ngrok /data/data/com.termux/files/usr/bin
-		chmod 777 /data/data/com.termux/files/usr/bin/ngrok
-		rm -rf ngrok
-	fi
-
+	rm -rf ngrok-kurulum
 fi
 
 

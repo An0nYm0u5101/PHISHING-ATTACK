@@ -1,7 +1,5 @@
 phishing-attack
 
-Güncelleme 13.04.2021
-
 GİTHUB    : https://github.com/termuxxtoolss
 
 TELEGRAM  : https://t.me/termuxxtoolss

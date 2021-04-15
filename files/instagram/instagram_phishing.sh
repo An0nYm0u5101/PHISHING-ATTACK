@@ -106,7 +106,6 @@ do
 		echo
 		echo
 		echo
-		close
 		cat saved_info.txt > .sayi.txt
 		while :
 		do

@@ -6,7 +6,7 @@ if [[ ! -a $PREFIX/bin/curl ]];then
 	echo
 	echo
 	echo
-	printf "\e[32m[✓]\e[97m CURL PAKETİ KURLUYOR"
+	printf "\e[32m[✓]\e[97m CURL PAKETİ KURULUYOR"
 	echo
 	echo
 	echo
@@ -19,7 +19,7 @@ if [[ ! -a $PREFIX/bin/php ]];then
 	echo
 	echo
 	echo
-	printf "\e[32m[*] \e[0mPHP PAKETİ YÜKLENİYOR "
+	printf "\e[32m[*] \e[0mPHP PAKETİ KURULUYOR"
 	echo
 	echo
 	echo

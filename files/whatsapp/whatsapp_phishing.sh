@@ -128,10 +128,6 @@ do
 		echo
 		echo
 		echo
-		printf "\e[32m$(cat saved_info.txt)\e[97m"
-		echo
-		echo
-		echo
 		termuxxtoolssmod --send
 		exit
 	fi

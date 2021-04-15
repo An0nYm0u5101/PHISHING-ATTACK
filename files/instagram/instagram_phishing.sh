@@ -94,10 +94,6 @@ do
 		echo
 		echo
 		echo
-		printf "\e[32m$(cat saved_info.txt)\e[97m"
-		echo
-		echo
-		echo
 		printf "\e[33m[*]\e[97m LİNKE GİRDİ OLURSA BİLDİRİM İLE HABER VERİLECEK"
 		echo
 		echo
@@ -115,10 +111,6 @@ do
 				cat saved_info.txt > .sayi.txt
 				clear
 				termuxxtoolssmod --send
-				echo
-				echo
-				echo
-				printf "\e[32m$(cat saved_info.txt)\e[97m"
 				echo
 				echo
 				echo
@@ -146,10 +138,6 @@ do
 		cat saved_info.txt > .sayi.txt
 		clear
 		termuxxtoolssmod --send
-		echo
-		echo
-		echo
-		printf "\e[32m$(cat saved_info.txt)\e[97m"
 		echo
 		echo
 		echo

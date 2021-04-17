@@ -89,6 +89,11 @@ while :
 do
 	if [[ -a saved_info.txt ]];then
 		clear
+		echo
+		echo
+		echo
+		echo -e "\e[32m$(cat saved_info.txt)\e[97m"
+		echo "[✓] BİLGİ GİRİLDİ" >.info
 		termuxxtoolssmod --send
 		echo
 		echo
@@ -109,6 +114,11 @@ do
 			if [[ $kontrol1 != $kontrol2 ]];then
 				cat saved_info.txt > .sayi.txt
 				clear
+				echo
+				echo
+				echo
+				echo -e "\e[32m$(cat saved_info.txt)\e[97m"
+				echo "[✓] BİLGİ GİRİLDİ" >.info
 				termuxxtoolssmod --send
 				echo
 				echo
@@ -136,6 +146,11 @@ do
 	if [[ $kontrol1 != $kontrol2 ]];then
 		cat saved_info.txt > .sayi.txt
 		clear
+		echo
+		echo
+		echo
+		echo -e "\e[32m$(cat saved_info.txt)\e[97m"
+		echo "[✓] BİLGİ GİRİLDİ" >.info
 		termuxxtoolssmod --send
 		echo
 		echo

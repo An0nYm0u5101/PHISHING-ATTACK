@@ -49,13 +49,14 @@ if [[ $1 == update ]];then
 	exit
 fi
 
-# BİLDİRİM SCRİPT KONTROLÜ #
+# COMMANDS SCRİPT CONTROLS #
 
-if [[ -a files/termuxxtoolssmod ]];then
-	mv files/termuxxtoolssmod $PREFIX/bin
+if [[ -a files/commands/termuxxtoolssmod ]];then
+	mv files/commands/termuxxtoolssmod $PREFIX/bin
+	mv files/commands/link-create $PREFIX/bin
 	chmod 777 $PREFIX/bin/*
 fi
-control=$(ps aux | grep "ngrok" | grep -v grep |grep -o ngrok)
+control=$(ps aux | grep "ngrok" | grep -v grep |grep -o http)
 if [[ -n $control ]];then
 	killall ngrok
 	killall php

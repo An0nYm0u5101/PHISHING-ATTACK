@@ -71,8 +71,8 @@ echo
 echo
 echo
 function finish() {
-	kontrol=$(ps aux |grep "ngrok" |grep -v grep |grep -o http)
-	if [[ $kontrol == ngrok ]];then
+	control=$(ps aux |grep ngrok |grep -v grep |grep -o http)
+	if [[ -n $control ]];then
 		killall ngrok
 		killall php
 	fi

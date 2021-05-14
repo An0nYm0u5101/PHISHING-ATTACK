@@ -95,7 +95,7 @@ elif [[ $secim == 3 ]];then
 	cd files/facebook
 	bash facebook_phishing.sh
 elif [[ $secim == A || $secim == a ]];then
-	termuxxtoolssmod --settings
+	termuxxtoolssmod
 	sleep 1
 	bash $0
 	exit
